@@ -1,0 +1,21 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.env
+.env.local
+
+# Evidence data (large files)
+evidence/
+*.dd
+*.raw
+*.mem
+*.vmem
+*.pcap
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

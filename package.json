@@ -1,0 +1,31 @@
+{
+  "name": "find-evil",
+  "version": "0.1.0",
+  "description": "AI-driven autonomous incident response agent using SIFT Workstation via MCP",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "find-evil": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/cli.ts",
+    "start": "node dist/cli.js",
+    "mcp-server": "node dist/mcp-server/index.js",
+    "analyze": "node dist/cli.js analyze",
+    "watch": "node dist/cli.js watch",
+    "benchmark": "node dist/cli.js benchmark"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
