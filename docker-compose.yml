@@ -1,0 +1,16 @@
+services:
+  sift:
+    build: .
+    container_name: find-evil-sift
+    volumes:
+      - ./evidence:/cases:ro
+      - ./analysis:/analysis
+      - ./exports:/exports
+      - ./reports:/reports
+    security_opt:
+      - no-new-privileges:true
+    read_only: false
+    tmpfs:
+      - /tmp:size=2G
+    mem_limit: 8g
+    cpus: 4
