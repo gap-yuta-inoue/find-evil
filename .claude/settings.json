@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__find-evil__*",
+      "Bash(docker exec find-evil-sift *)",
+      "Read",
+      "Write(analysis/*)",
+      "Write(reports/*)",
+      "Write(exports/*)"
+    ],
+    "deny": [
+      "Bash(rm *)",
+      "Bash(dd *)",
+      "Bash(* > /cases/*)",
+      "Write(evidence/*)",
+      "Write(/cases/*)"
+    ]
+  },
+  "mcpServers": {
+    "find-evil": {
+      "command": "node",
+      "args": ["dist/mcp-server/index.js"],
+      "env": {}
+    }
+  }
+}

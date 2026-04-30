@@ -3,6 +3,7 @@
 import { parseArgs } from "node:util";
 import { startMcpServer } from "./mcp-server/index.js";
 import { AuditLogger } from "./audit/logger.js";
+import { runAnalysis } from "./agent/runner.js";
 
 const HELP = `
 find-evil — AI-Driven Autonomous Incident Response Agent
@@ -97,11 +98,9 @@ async function main(): Promise<void> {
         process.exit(1);
       }
       console.log(`[find-evil] Analyzing evidence: ${evidencePath}`);
-      console.log(`[find-evil] SIFT host: ${options.sift}`);
       console.log(`[find-evil] Audit logs: ${options.logDir}`);
-      logger.log("case_start", { evidencePath, mode: "analyze", siftHost: options.sift });
-      // TODO: Orchestrator integration
-      console.log("[find-evil] Orchestrator not yet implemented — coming in Phase 1");
+      console.log("");
+      await runAnalysis([evidencePath], logger, options.verbose);
       break;
     }
 
